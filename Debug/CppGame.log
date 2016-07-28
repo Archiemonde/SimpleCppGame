@@ -1,0 +1,9 @@
+﻿  WorldMap.cpp
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(76): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(102): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(128): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(210): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(253): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(269): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.exe
+  CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.pdb (Partial PDB)
