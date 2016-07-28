@@ -1,17 +1,20 @@
 #include"Interaction.h"
 
-void Interaction::makeInteraction(Player &player, MapObject &object, int interactionID) {
+int Interaction::makeInteraction(Player &player, MapObject &object, int interactionID) {
 	switch (interactionID) {
 	case 1:
 		//player.addItem(object.getItem());
 		break;
 	}
+	return 0;
 }
-void Interaction::makeInteraction(int interactionID) {
+int Interaction::makeInteraction(int interactionID) {
 	switch (interactionID) {
 	case 1:
-		//this->mapObject->interact(*this->player);
-		//this->player->addItem(this->mapObject->getItem());
+		cout << "interaction!: wood: " << player->items["Wood"].amount << endl;
+		cout << "interaction!: rock: " << player->items["Rock"].amount << endl;
+		if (this->mapObject->interact(*this->player)) return 1;
+		else return 0;
 		break;
 	}
 }
@@ -20,4 +23,8 @@ void Interaction::setMapObject(MapObject &object) {
 }
 void Interaction::setPlayer(Player &player) {
 	this->player = &player;
+}
+
+MapObject * Interaction::getMapObject() {
+	return this->mapObject;
 }

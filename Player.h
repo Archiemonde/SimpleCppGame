@@ -6,11 +6,11 @@
 using namespace std;
 class Player: public MapObject {
 private:
-	map<string,Item> items;
+	
 public:
 	Player();
 	Player(int, string, int, int, int);
-	virtual void Player::interact(Player & player);
+	virtual int Player::interact(MapObject & player);
 	virtual void Player::addItem(Item);
-	virtual Item Player::getItem();
+	map<string, Item> items;
 };

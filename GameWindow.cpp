@@ -1,4 +1,3 @@
-
 #include"GameWindow.h"
 using namespace sf;
 //void makeItInThread(wm::WorldMap &worldMap) {
@@ -16,6 +15,7 @@ void GameWindow::checkCollision(ButtonClass& interactionBtn, RenderWindow & wind
 	}
 	else if (worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].contains("Rock")) {
 		interactionBtn.setText("Chop stone");
+		this->interaction.setMapObject(worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getObject("Rock"));
 		interactionEnabled = 1;
 	}
 	else {
@@ -91,7 +91,11 @@ void GameWindow::createGameWindow() {
 			interactionBtn.setButton(window);
 			if (event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonReleased && interactionBtn.handleClickEvent(event.mouseButton.x, event.mouseButton.y) == 1) {
 				//if(worldMap->matrix[player->coordinates.x][player->coordinates.y].getObject())
-			interaction.makeInteraction(1);
+			int deleteFlag = interaction.makeInteraction(1);
+			if (deleteFlag == 0) {
+				worldMap->matrix[interaction.getMapObject()->coordinates.x][interaction.getMapObject()->coordinates.y].removeObject(interaction.getMapObject()->objectName);
+				interactionEnabled = 0;
+			}
 			}
 		}
 		window.display();

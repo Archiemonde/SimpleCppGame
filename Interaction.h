@@ -5,10 +5,11 @@
 
 class Interaction {
 public:
-	void makeInteraction(Player &player, MapObject &object, int interactionID);
-	void makeInteraction(int interactionID);
+	int makeInteraction(Player &player, MapObject &object, int interactionID);
+	int makeInteraction(int interactionID);
 	void setMapObject(MapObject &object);
 	void setPlayer(Player &player);
+	MapObject * getMapObject();
 private:
 	Player *player;
 	MapObject *mapObject;

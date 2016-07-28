@@ -7,5 +7,5 @@ class Tree :public MapObject {
 public:
 	int woodCount;
 	Tree(string, int, int, int, int);
-	virtual void interact(Player &);
+	virtual int interact(MapObject &);
 };
