@@ -17,6 +17,11 @@ void LabelClass::setPosition(int x, int y) {
 void LabelClass::setTextColor(Color color) {
 	this->label.setColor(color);
 }
+void LabelClass::setText(string text) {
+	this->label.setString(text);
+	this->label.setOrigin(this->label.getGlobalBounds().width / 2, this->label.getGlobalBounds().height / 2);
+
+}
 void LabelClass::setLabel(RenderWindow &window ) {
 	window.draw(this->label);
 }

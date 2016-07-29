@@ -9,6 +9,7 @@
 #include"LabelClass.h"
 #include <thread>   
 #include <SFML/Graphics.hpp>
+#include<math.h>
 
 class GameWindow {
 private:

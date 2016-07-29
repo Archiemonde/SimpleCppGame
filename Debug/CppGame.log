@@ -1,9 +1,6 @@
-﻿  Interaction.cpp
-  GameWindow.cpp
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\gamewindow.cpp(213): warning C4805: '==': unsafe mix of type 'sf::Mouse::Button' and type 'bool' in operation
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\gamewindow.cpp(223): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\gamewindow.cpp(227): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
-  Generating Code...
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\interaction.cpp(20): warning C4715: 'Interaction::makeInteraction': not all control paths return a value
+﻿  RenderTools.cpp
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(26): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(34): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.exe
   CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.pdb (Partial PDB)

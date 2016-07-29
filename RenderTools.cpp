@@ -3,6 +3,7 @@
 #include"Rock.h"
 #include"MapObject.h"
 #include<map>
+#include"LabelClass.h"
 using namespace std;
 using namespace sf;
 Sprite sprite;
@@ -10,10 +11,32 @@ RenderTools::RenderTools() {
 	this->cellsToRender = new Cell *[31];
 	for (int i = 0;i < 31;i++) cellsToRender[i] = new Cell[21];
 }
+
+
 void RenderTools::drawSprite(RenderWindow &window,const int & imageName,const int & x,const int & y) {
 	sprite.setTexture(textureBuffer.getTexture(imageName));
 	sprite.setPosition(x * 50, y * 50);
 	window.draw(sprite);
+}
+void RenderTools::drawPlayerResourceGraphs(RenderWindow &window, int wood, int rock) {
+	//drawSprite(window, 10, window.getSize().x-100, 40);
+	//drawSprite(window, 11, window.getSize().x - 100, 80);
+	Sprite sprite1;
+	sprite1.setTexture(textureBuffer.getTexture(10));
+	sprite1.setPosition(window.getSize().x - 120, 0);
+	window.draw(sprite1);
+	LabelClass woodResourceCounterLabel(to_string(wood), 40);
+	woodResourceCounterLabel.setPosition(window.getSize().x - 120, 100);
+	woodResourceCounterLabel.setTextColor(Color(sf::Color::White));
+	woodResourceCounterLabel.setLabel(window);
+
+	sprite1.setTexture(textureBuffer.getTexture(11));
+	sprite1.setPosition(window.getSize().x - 120, 120);
+	window.draw(sprite1);
+	LabelClass rockResourceCounterLabel(to_string(rock), 40);
+	rockResourceCounterLabel.setPosition(window.getSize().x - 120, 220);
+	rockResourceCounterLabel.setTextColor(Color(sf::Color::White));
+	rockResourceCounterLabel.setLabel(window);
 }
 void RenderTools::paintWorld(RenderWindow &window, const int & x, const int & y) {
 	int screenX = 0;

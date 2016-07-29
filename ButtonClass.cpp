@@ -62,6 +62,11 @@ int ButtonClass::handleClickEvent(int x, int y) {
 }
 void ButtonClass::setText(string text) {
 	this->buttonText.setString(text);
+	this->buttonText.setOrigin(this->buttonText.getGlobalBounds().width / 2, this->buttonText.getGlobalBounds().height / 2);
+	/*Text should always be at the center of button*/
+	this->buttonText.setPosition(
+		this->buttonRect.getGlobalBounds().left + this->buttonRect.getGlobalBounds().width / 2,
+		this->buttonRect.getGlobalBounds().top + this->buttonRect.getGlobalBounds().height / 2);
 }
 ButtonClass::~ButtonClass() {
 }

@@ -3,7 +3,10 @@
 int Interaction::makeInteraction(Player &player, MapObject &object, int interactionID) {
 	switch (interactionID) {
 	case 1:
-		//player.addItem(object.getItem());
+		cout << "interaction!: wood: " << player.items["Wood"].amount << endl;
+		cout << "interaction!: rock: " << player.items["Rock"].amount << endl;
+		if (this->mapObject->interact(*this->player)) return 1;
+		else return 0;
 		break;
 	}
 	return 0;

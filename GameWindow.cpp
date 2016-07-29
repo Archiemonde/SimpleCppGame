@@ -4,7 +4,6 @@ using namespace sf;
 //	std::thread t(&wm::WorldMap::create, wm::WorldMap());
 //	std::thread thread(worldMap.create());
 //	thread.join();
-//	cout << "tu threadzik sobie zadzialal xD"<<endl;
 //}
 /*Checks collisions with Trees, Rocks and unable player to walk on water (unless youre Jesus)*/
 void GameWindow::checkCollision(ButtonClass& interactionBtn, RenderWindow & window, int dx, int dy) {
@@ -20,8 +19,7 @@ void GameWindow::checkCollision(ButtonClass& interactionBtn, RenderWindow & wind
 	}
 	else {
 		interactionEnabled = 0;
-		cout << worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getCoordinates().z << endl;
-		if (worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getCoordinates().z!=0 && (player->coordinates.x + dx!=0 || player->coordinates.y + dy!=0) || player->objectName == "Jesus")
+		if (abs(worldMap->matrix[player->coordinates.x][player->coordinates.y].getCoordinates().z - worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getCoordinates().z) <10 && worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getCoordinates().z!=0 && (player->coordinates.x + dx!=0 || player->coordinates.y + dy!=0) || player->objectName == "Jesus")
 		player = static_cast<Player*>(&this->worldMap->moveObject(player, dx, dy));
 	}
 }
@@ -31,13 +29,14 @@ void GameWindow::createGameWindow() {
 	window.setFramerateLimit(60);
 
 	this->interaction.setPlayer(*player);
-
+	/*In game GUI elements*/
 	ButtonClass interactionBtn("Interact");
-	interactionBtn.setSize(160, 50);
+	interactionBtn.setSize(200, 50);
 	interactionBtn.setColor(Color(200, 200, 200, 255));
 	interactionBtn.setTextSize(40);
 	interactionBtn.setPosition((window.getSize().x / 2) + 60, (window.getSize().y / 2) - 60);
 
+	/*END of In game GUI elements*/
 	while (window.isOpen())
 	{
 		Event event;
@@ -60,7 +59,7 @@ void GameWindow::createGameWindow() {
 		}
 		window.clear();
 		this->rt.paintWorld(window, 0, 0);
-
+		this->rt.drawPlayerResourceGraphs(window, player->items.at("Wood").amount, player->items.at("Rock").amount);
 		/*Maintaining all the events happened in game window*/
 		while (window.pollEvent(event))
 		{

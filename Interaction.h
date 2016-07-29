@@ -2,6 +2,7 @@
 #include"Point.h"
 #include"MapObject.h"
 #include"Player.h"
+#include<Windows.h>
 
 class Interaction {
 public:

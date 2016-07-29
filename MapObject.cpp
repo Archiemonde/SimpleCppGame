@@ -1,6 +1,4 @@
 #include "MapObject.h"
-
-
 using namespace std;
 MapObject::MapObject(int objectID, string objectName, int objectSprite, Point coordinates) {
 	this->objectID = objectID;
@@ -15,16 +13,6 @@ MapObject::MapObject(int objectID, string objectName, int objectSprite, int x, i
 	this->coordinates = Point(x, y, z);
 	this->sprite = objectSprite;
 }
-
-//Item MapObject::getItem() {
-//	cout << "get item in MapObject";
-//	return Item("def", "edf", 0);
-//}
-
-//void MapObject::interaction(Player & player) {
-//	cout << "elohim";
-//}
-
 MapObject::~MapObject()
 {
 }

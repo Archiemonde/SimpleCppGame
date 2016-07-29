@@ -12,4 +12,5 @@ public:
 	void setPosition(int, int);
 	void setLabel(RenderWindow &);
 	void setTextColor(Color);
+	void setText(string text);
 };
