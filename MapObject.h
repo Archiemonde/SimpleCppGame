@@ -3,6 +3,7 @@
 #include<string>
 #include"Item.h"
 #include "Point.h"
+#include <windows.h>
 using namespace std;
 
 class MapObject

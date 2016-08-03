@@ -259,7 +259,7 @@ void WorldMap::placeTrees(int seedCount)
 		if (matrix[seedx][seedy].getCoordinates().z != 0 && matrix[seedx][seedy].getAllObjects().size() == 0) {
 			int treeID = TREE_ID + rand()%4;
 			string spriteName = to_string(treeID) + ".png";
-			matrix[seedx][seedy].addObject(new Tree("Tree",treeID,seedx,seedy,20));
+			matrix[seedx][seedy].addObject(new Tree("Tree",treeID,seedx,seedy, (rand() % 10) + 1));
 		}
 		seedCount--;
 	}
@@ -274,7 +274,7 @@ void WorldMap::placeRocks(int seedCount) {
 		seedy = rand() % ((int)(size.y * 0.9)) + (int)(size.y * 0.05);
 		if (matrix[seedx][seedy].getCoordinates().z != 0 && matrix[seedx][seedy].getAllObjects().size() == 0) {
 			int rockID = ROCK_ID + rand() % 4;
-			matrix[seedx][seedy].addObject(new Rock("Rock", rockID, seedx, seedy, 20));
+			matrix[seedx][seedy].addObject(new Rock("Rock", rockID, seedx, seedy, (rand() % 10)+1));
 		}
 		seedCount--;
 	}

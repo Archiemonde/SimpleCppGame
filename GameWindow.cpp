@@ -88,7 +88,7 @@ void GameWindow::createGameWindow() {
 		/*If event loop detect player interaction with some object, interactionEnabled flag gets swiched to 1*/
 		if (interactionEnabled == 1) {
 			interactionBtn.setButton(window);
-			if (event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonReleased && interactionBtn.handleClickEvent(event.mouseButton.x, event.mouseButton.y) == 1) {
+			if (event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonPressed && interactionBtn.handleClickEvent(event.mouseButton.x, event.mouseButton.y) == 1) {
 				//if(worldMap->matrix[player->coordinates.x][player->coordinates.y].getObject())
 			int deleteFlag = interaction.makeInteraction(1);
 			if (deleteFlag == 0) {
