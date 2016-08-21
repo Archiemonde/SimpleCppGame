@@ -5,7 +5,7 @@ int Tree::loadSoundBuffer = 0;
 sf::SoundBuffer Tree::sBuffer;
 sf::Sound Tree::sound;
 
-Tree::Tree(string name, int spriteName, int x, int y, int woodCount) :woodCount(woodCount), MapObject(TREE_ID, name, spriteName, x, y) {
+Tree::Tree(string name, int spriteName, int x, int y, int woodCount):woodCount(woodCount), MapObject(TREE_ID, name, spriteName, x, y) {
 	if (!loadSoundBuffer) {
 		loadSoundBuffer = 1;
 		if (!sBuffer.loadFromFile(SOUND)) {

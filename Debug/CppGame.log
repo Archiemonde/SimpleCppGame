@@ -1,9 +1,10 @@
-﻿  WorldMap.cpp
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(76): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(102): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(128): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(210): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(253): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\worldmap.cpp(269): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  RenderTools.cpp
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(27): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(35): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(91): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.exe
   CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.pdb (Partial PDB)

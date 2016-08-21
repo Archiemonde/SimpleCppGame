@@ -13,17 +13,34 @@ map<string, MapObject *> & Cell::getAllObjects() {
 	return *objects;
 }
 
-void Cell::addObject(MapObject *object) {
-	objects->insert(std::pair<const std::string, MapObject *>(object->objectName, object));
+MapObject& Cell::addObject(MapObject *object) {
+	try {
+		objects->insert(std::pair<const std::string, MapObject *>(object->objectName, object));
+	}
+	catch (...) {
+	}
+	return *objects->at(object->objectName);
 }
 
 MapObject & Cell::getObject(string objectName) {
 	//cout << "returns the object " << this->objects->at(objectName).coordinates.x<<"  "<< this->objects->at(objectName).coordinates.y<< endl;
-	return *this->objects->at(objectName);
+	try {
+		return *this->objects->at(objectName);
+	}
+	catch (...) {
+		if (this->objects->empty()) cout << "ERROR: Cell("<<this->coordinates.x<<", "<< this->coordinates.y <<") objects map is empty!" <<  endl;
+		else cout << "Error while getting element from Cell("<<this->coordinates.x<<","<< this->coordinates.y <<")"<<  endl;
+	}
 }
 
 int Cell::removeObject(string id) {
-	return objects->erase(id);
+	try {
+		return objects->erase(id);
+	}
+	catch (...) {
+		if (this->objects->empty()) cout << "ERROR: Cell(" << this->coordinates.x << ", " << this->coordinates.y << ") objects map is empty!" << endl;
+		else cout << "Error while getting element from Cell(" << this->coordinates.x << "," << this->coordinates.y << ")" << endl;
+	}
 }
 
 int Cell::contains(const string & objectName) {

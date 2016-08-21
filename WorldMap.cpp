@@ -1,5 +1,4 @@
 #include "WorldMap.h"
-using namespace wm;
 WorldMap::WorldMap(int xSize, int ySize, int zSize)
 {
 	size = Point(xSize, ySize, zSize);
@@ -7,6 +6,7 @@ WorldMap::WorldMap(int xSize, int ySize, int zSize)
 	progress = 0.0;
 	matrix = new Cell *[xSize];
 	for (int i = 0; i < xSize; i++) matrix[i] = new Cell [ySize];
+	isMapExists = 1;
 }
 int WorldMap::create() {
 	clock_t begin = clock();
@@ -24,14 +24,13 @@ int WorldMap::create() {
 		this->randomSeeds((int)sqrt(this->size.x), (i + 2), (i + 1));
 		this->growSeeds(count, i + 2, (i + 1));
 		this->progress += 0.02;
-		//cout << i << endl;
 	}
 	placeTrees((int)(size.x*size.y*0.15));
 	placeRocks((int)(size.x*size.y*0.15));
+	placeMoveable((int)(size.x*size.y*0.01));
 	progress = 1.0;
 	clock_t end = clock();
 	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-	//cout << elapsed_secs << endl;
 	return 1;
 }
 
@@ -215,38 +214,59 @@ void WorldMap::placePlayer(string playerName,int playerID, Player &player)
 		if (matrix[x][y].getCoordinates().z != 0 && matrix[x][y].getAllObjects().empty() == true) {
 			player = * new Player(playerID, playerName, x, y, playerID);
 			matrix[x][y].addObject(&player);
+			cout << "Player placed at Cell(" << x << ", " << y << ")" << endl;
 			break;	
 		}
 	}
 }
 
-MapObject& wm::WorldMap::moveObject(MapObject *object, int dx, int dy) {
-		object->coordinates.x += dx;
-		object->coordinates.y += dy;
-		int x = object->coordinates.x;
-		int y = object->coordinates.y;
-		this->matrix[object->coordinates.x][object->coordinates.y].addObject(object);
-		*object = this->matrix[object->coordinates.x][object->coordinates.y].getObject(object->objectName);
-		//cout << object->coordinates.x << " coordx, coordy:" << object->coordinates.y << endl;
-		this->matrix[object->coordinates.x - dx][object->coordinates.y - dy].removeObject(object->objectName);
-		//cout << object->coordinates.x << " coordx, coordy:" << object->coordinates.y << endl;
-		*object = (this->matrix[x][y].getObject(object->objectName));
-		return *object;
+void WorldMap::bringMoveablesToLife() {
+	srand(time(NULL));
+	while (isMapExists)
+		for (int i = 0; i< animals.size(); i++) {
+			animals.at(i) = static_cast<Animal*>(&moveObject(animals.at(i), (rand() % 3) - 1, (rand() % 3) - 1));
+			Sleep(100);
+		}
+	Sleep(3000);
 }
 
-//MapObject& wm::WorldMap::moveObject(MapObject &object, int dx, int dy) {
-//	object.coordinates.x += dx;
-//	object.coordinates.y += dy;
-//	int x = object.coordinates.x;
-//	int y = object.coordinates.y;
-//	this->matrix[object.coordinates.x][object.coordinates.y].addObject(object);
-//	object = this->matrix[object.coordinates.x][object.coordinates.y].getObject(object.objectName);
-//	cout << object.coordinates.x << " coordx, coordy:" << object.coordinates.y << endl;
-//	this->matrix[object.coordinates.x - dx][object.coordinates.y - dy].removeObject(object.objectName);
-//	cout << object.coordinates.x << " coordx, coordy:" << object.coordinates.y << endl;
-//	object = *new MapObject(this->matrix[x][y].getObject(object.objectName));
-//	return object;
-//}
+void WorldMap::placeMoveable(int seeds)
+{
+	srand(time(NULL));
+	int seedx;
+	int seedy;
+	while (seeds > 0) {
+		//cout << seeds << endl;
+		seedx = rand() % ((int)(size.x * 0.9)) + (int)(size.x * 0.05);
+		seedy = rand() % ((int)(size.y * 0.9)) + (int)(size.y * 0.05);
+		if (matrix[seedx][seedy].getCoordinates().z != 0 && matrix[seedx][seedy].getAllObjects().empty() == true) {
+			int moveableID = ANIMAL_ID + (rand() % 3);
+			string spriteName = to_string(moveableID) + ".png";
+			string animalID = "Animal";
+			animals.push_back(static_cast<Animal *>(&matrix[seedx][seedy].addObject(new Animal(animalID, moveableID, seedx, seedy))));
+			seeds--;
+		}
+		
+	}
+	move = new std::thread(&WorldMap::bringMoveablesToLife, this);
+	//bringMoveablesToLife();
+	cout << "Done setting moveables"<<endl;
+}
+
+MapObject& WorldMap::moveObject(MapObject *object, int dx, int dy) {
+	if ((dx == 0 && dy == 0)) return *object;
+	if((object->objectID != 0))
+	if((matrix[object->coordinates.x + dx][object->coordinates.x + dy].getCoordinates().z == 0) || (object->coordinates.x + dx == 0) || (object->coordinates.y + dy == 0)) return *object;
+	object->coordinates.x += dx;
+	object->coordinates.y += dy;
+	int x = object->coordinates.x;
+	int y = object->coordinates.y;
+	this->matrix[object->coordinates.x][object->coordinates.y].addObject(object);
+	*object = this->matrix[object->coordinates.x][object->coordinates.y].getObject(object->objectName);
+	this->matrix[object->coordinates.x - dx][object->coordinates.y - dy].removeObject(object->objectName);
+	*object = (this->matrix[x][y].getObject(object->objectName));
+	return *object;
+}
 
 void WorldMap::placeTrees(int seedCount)
 {
@@ -263,7 +283,7 @@ void WorldMap::placeTrees(int seedCount)
 		}
 		seedCount--;
 	}
-	cout<<"Done making trees";
+	cout<<"Done making trees" << endl;
 }
 void WorldMap::placeRocks(int seedCount) {
 	srand(time(NULL));
@@ -278,7 +298,7 @@ void WorldMap::placeRocks(int seedCount) {
 		}
 		seedCount--;
 	}
-	cout << "Done making rocks";
+	cout << "Done making rocks" << endl;
 }
 Cell ** WorldMap::getMatrix() {
 	return matrix;
@@ -286,6 +306,8 @@ Cell ** WorldMap::getMatrix() {
 
 WorldMap::~WorldMap()
 {
+	move->join();
+	isMapExists = 0;
 	for (int i = 0;i < this->size.y;i++) delete [] matrix[i];
 	delete[] matrix;
 }

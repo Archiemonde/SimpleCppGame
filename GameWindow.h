@@ -18,7 +18,7 @@ private:
 	bool interactionEnabled = 0;
 	Interaction interaction;
 public:
-	wm::WorldMap *worldMap;
+	WorldMap *worldMap;
 	RenderTools rt;
 	void checkCollision(ButtonClass& interactionBtn, RenderWindow & window, int dx, int dy);
 	void createGameWindow();

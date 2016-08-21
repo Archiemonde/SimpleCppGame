@@ -7,15 +7,16 @@
 using namespace std;
 using namespace sf;
 Sprite sprite;
+Sprite sprite2;
 RenderTools::RenderTools() {
 	this->cellsToRender = new Cell *[31];
 	for (int i = 0;i < 31;i++) cellsToRender[i] = new Cell[21];
 }
 
 
-void RenderTools::drawSprite(RenderWindow &window,const int & imageName,const int & x,const int & y) {
+void RenderTools::drawSprite(RenderWindow &window,const int & imageName,const int & x,const int & y, const int & xChange, const int & yChange) {
 	sprite.setTexture(textureBuffer.getTexture(imageName));
-	sprite.setPosition(x * 50, y * 50);
+	sprite.setPosition(x * 50 +xChange, y * 50+yChange);
 	window.draw(sprite);
 }
 void RenderTools::drawPlayerResourceGraphs(RenderWindow &window, int wood, int rock) {
@@ -46,46 +47,56 @@ void RenderTools::paintWorld(RenderWindow &window, const int & x, const int & y)
 			screenY = 0;
 			for (int j = 0; j < 21; j++) {
 				if (checkHeight(i, j) == 300) {
-					drawSprite(window, 100, screenX, screenY);
+					drawSprite(window, 100, screenX, screenY, 0, 0);
 				}else{
-					drawSprite(window, checkHeight(i, j) + 9, screenX, screenY);
+					drawSprite(window, checkHeight(i, j) + 9, screenX, screenY, 0, 0);
 				}
 				if (j > 0 && RenderTools::cellsToRender[i][j - 1].getCoordinates().z >RenderTools::cellsToRender[i][j].getCoordinates().z) {
-					drawSprite(window, checkHeight(i, j - 1) + 1, screenX, screenY);
+					drawSprite(window, checkHeight(i, j - 1) + 1, screenX, screenY,0,0);
 				}
 				if (i<30 && RenderTools::cellsToRender[i + 1][j].getCoordinates().z > RenderTools::cellsToRender[i][j].getCoordinates().z) {
-					drawSprite(window, checkHeight(i + 1, j) +2, screenX, screenY);
+					drawSprite(window, checkHeight(i + 1, j) +2, screenX, screenY, 0, 0);
 				}
 				if (j<20 && RenderTools::cellsToRender[i][j + 1].getCoordinates().z> RenderTools::cellsToRender[i][j].getCoordinates().z) {
-					drawSprite(window, checkHeight(i, j + 1) + 3, screenX, screenY);
+					drawSprite(window, checkHeight(i, j + 1) + 3, screenX, screenY, 0, 0);
 				}
 				if (i > 0 && RenderTools::cellsToRender[i - 1][j].getCoordinates().z > RenderTools::cellsToRender[i][j].getCoordinates().z) {
-					drawSprite(window, checkHeight(i - 1, j) +4, screenX, screenY);
+					drawSprite(window, checkHeight(i - 1, j) +4, screenX, screenY, 0, 0);
 				}
 				if (i > 0 && j > 0 && RenderTools::cellsToRender[i - 1][j - 1].getCoordinates().z > RenderTools::cellsToRender[i][j].getCoordinates().z) {
-					drawSprite(window, checkHeight(i - 1, j - 1) +5, screenX, screenY);
+					drawSprite(window, checkHeight(i - 1, j - 1) +5, screenX, screenY, 0, 0);
 				}
 				if (i<30 && j>0 && RenderTools::cellsToRender[i + 1][j - 1].getCoordinates().z > RenderTools::cellsToRender[i][j].getCoordinates().z && j > 0) {
-					drawSprite(window, checkHeight(i + 1, j - 1) + 6, screenX, screenY);
+					drawSprite(window, checkHeight(i + 1, j - 1) + 6, screenX, screenY, 0, 0);
 				}
 				if (i<30 && j<20 && RenderTools::cellsToRender[i + 1][j + 1].getCoordinates().z >RenderTools::cellsToRender[i][j].getCoordinates().z) {
-					drawSprite(window, checkHeight(i + 1, j + 1) + 7, screenX, screenY);
+					drawSprite(window, checkHeight(i + 1, j + 1) + 7, screenX, screenY, 0, 0);
 				}
 				if (i > 0 && j<20 && RenderTools::cellsToRender[i - 1][j + 1].getCoordinates().z> RenderTools::cellsToRender[i][j].getCoordinates().z) {
-					drawSprite(window, checkHeight(i - 1, j + 1) + 8, screenX, screenY);
+					drawSprite(window, checkHeight(i - 1, j + 1) + 8, screenX, screenY, 0, 0);
 				}
 				if (!RenderTools::cellsToRender[i][j].getAllObjects().empty())
 					for (map<string, MapObject *>::iterator it = cellsToRender[i][j].getAllObjects().begin(); it != RenderTools::cellsToRender[i][j].getAllObjects().end(); it++)
 					{
 						MapObject *mo = it->second;
-						if (typeid(dynamic_cast<Tree*>(mo)) == typeid(Tree *)) {
-							drawSprite(window, mo->sprite, screenX, screenY);
+						if (mo->objectName == "Tree") {
+							sprite2.setTexture(textureBuffer.getTexture(350));
+							sprite2.setPosition(screenX * 50 - 30, screenY * 50 - 20);
+							window.draw(sprite2);
+							sprite2.setTexture(textureBuffer.getTexture(mo->sprite));
+							sprite2.setPosition(screenX * 50 -10, screenY * 50 -20);
+							window.draw(sprite2);
+						}else if (mo->objectName == "Rock") {
+							sprite2.setTexture(textureBuffer.getTexture(450));
+							sprite2.setPosition(screenX * 50 - 20, screenY * 50 - 10);
+							window.draw(sprite2);
+							sprite2.setTexture(textureBuffer.getTexture(mo->sprite));
+							sprite2.setPosition(screenX * 50 - 10, screenY * 50 - 10);
+							window.draw(sprite2);
+
 						}
-						else if (typeid(dynamic_cast<Rock*>(mo)) == typeid(Rock *)) {
-							drawSprite(window, mo->sprite, screenX, screenY);
-						}
-						else if (typeid(dynamic_cast<Player*>(mo)) == typeid(Player *)) {
-							drawSprite(window, mo->sprite, screenX, screenY);
+						else {
+							drawSprite(window, mo->sprite, screenX, screenY, 0, 0);
 						}
 					}
 					

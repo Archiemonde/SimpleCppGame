@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Animal.h" />
     <ClInclude Include="ButtonClass.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="GameWindow.h" />
@@ -136,6 +137,7 @@
     <ClInclude Include="WorldMap.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animal.cpp" />
     <ClCompile Include="ButtonClass.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="GameWindow.cpp" />

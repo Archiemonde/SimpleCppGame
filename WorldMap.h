@@ -3,10 +3,12 @@
 #include"Player.h"
 #include"MapObject.h"
 #include<map>
+#include<vector>
 #include<time.h>
 #include"Tree.h"
 #include"Rock.h"
-namespace wm {
+#include"Animal.h"
+#include<thread>
 	class WorldMap
 	{
 	public:
@@ -19,11 +21,12 @@ namespace wm {
 		double progress;
 		std::map<int, Player> players;
 		/*places the player on random position on the map*/
-		void wm::WorldMap::placePlayer(string, int, Player &player);
-		MapObject& wm::WorldMap::moveObject(MapObject *object, int dx, int dy);
+		void WorldMap::placePlayer(string, int, Player &player);
+		MapObject& WorldMap::moveObject(MapObject *object, int dx, int dy);
 		//MapObject& wm::WorldMap::moveObject(MapObject &object, int dx, int dy);
 		virtual ~WorldMap();
 	private:
+		void WorldMap::placeMoveable(int seeds);
 		void WorldMap::placeRocks(int);
 		void WorldMap::placeTrees(int);
 		/*
@@ -33,7 +36,7 @@ namespace wm {
 		type - type of terrain to place, the value should be like "2" or "1" for easier iteration
 		onType - type of terrain on which this bed rock needs to be placed, method would be helpfull
 		*/
-		void wm::WorldMap::placeBedRock(int seeds, int cellsAround, int z, int ontype);
+		void WorldMap::placeBedRock(int seeds, int cellsAround, int z, int ontype);
 		/*
 		Placing the seeds in random positions of specified type
 		seeds-number of seeds that needs to be placed
@@ -44,6 +47,9 @@ namespace wm {
 		void randomSeeds(int seeds, int z, int onType);
 		int growSeeds(int count, int z, int onType);
 		void fillWith(int = 0);
-		int wm::WorldMap::main(void);
+		void WorldMap::bringMoveablesToLife();
+		int WorldMap::main(void);
+		vector<Animal *> animals;
+		std::thread *move;
+		int isMapExists = 0;
 	};
-}

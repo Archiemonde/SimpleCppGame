@@ -25,6 +25,12 @@
     <Filter Include="Source Files\MapUtils">
       <UniqueIdentifier>{e1fb3d08-5aab-4370-a582-053795f2a716}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\MapUtils\Moveable">
+      <UniqueIdentifier>{f961348c-678a-41b2-ad28-053c8bee2d5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MapUtils\Moveable">
+      <UniqueIdentifier>{76c89969-d4b3-466b-84e3-9db300f9b262}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameWindow.h">
@@ -74,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="Interaction.h">
       <Filter>Header Files\MapUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal.h">
+      <Filter>Header Files\MapUtils\Moveable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="Interaction.cpp">
       <Filter>Source Files\MapUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal.cpp">
+      <Filter>Source Files\MapUtils\Moveable</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

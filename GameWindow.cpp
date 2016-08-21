@@ -1,10 +1,6 @@
 #include"GameWindow.h"
 using namespace sf;
-//void makeItInThread(wm::WorldMap &worldMap) {
-//	std::thread t(&wm::WorldMap::create, wm::WorldMap());
-//	std::thread thread(worldMap.create());
-//	thread.join();
-//}
+
 /*Checks collisions with Trees, Rocks and unable player to walk on water (unless youre Jesus)*/
 void GameWindow::checkCollision(ButtonClass& interactionBtn, RenderWindow & window, int dx, int dy) {
 	if (worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].contains("Tree")) {
@@ -239,8 +235,8 @@ void GameWindow::createMenuWindow() {
 					cout << "creating a game..." << endl;
 					int size = std::stoi(mapSizeTxt.getContent());
 					if (size > 30) {
-						worldMap = new wm::WorldMap(size, size, 47);
-						std::thread t(&wm::WorldMap::create, worldMap);
+						worldMap = new WorldMap(size, size, 47);
+						std::thread t(&WorldMap::create, worldMap);
 						player = new Player();
 						worldMap->placePlayer(playerNameTxt.getContent(), 0, *player);
 						int minx = player->coordinates.x - 15;
@@ -267,7 +263,7 @@ void GameWindow::createMenuWindow() {
 						t3.join();
 					}
 					else {
-						this->worldMap = new wm::WorldMap(100, 100, 47);
+						this->worldMap = new WorldMap(100, 100, 47);
 						this->worldMap->create();
 						for (int x = 0;x < 31;x++) {
 							for (int y = 0;y < 21;y++) {
@@ -327,7 +323,6 @@ void GameWindow::createMenuWindow() {
 			progressBar.setProgressBar(window);
 			
 		}
-		
 		window.display();
 	}
 }

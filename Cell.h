@@ -17,7 +17,7 @@ public:
 	virtual ~Cell();
 	Point & getCoordinates(); //returns coordinates of that cell
 	map<string, MapObject *> & getAllObjects();
-	void addObject(MapObject *object);
+	MapObject& addObject(MapObject *object);
 	MapObject& getObject(string objectName);
 	int contains(const string & objectName);
 	int removeObject(string objectName);

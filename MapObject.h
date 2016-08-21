@@ -9,8 +9,8 @@ using namespace std;
 class MapObject
 {
 public:
-	MapObject(int, string, int, Point);
-	MapObject(int, string, int, int, int, int = 0);
+	MapObject(int objectID, string objectName, int objectSprite, Point coordinates);
+	MapObject(int objectID, string objectName, int objectSprite, int x, int y, int = 0);
 	virtual ~MapObject();
 	virtual int interact(MapObject & player)=0;
 	string objectName;
