@@ -15,8 +15,6 @@ private:
 	static int loadSoundBuffer;
 public:
 	int rockCount;
-	int elapsed = 0;
 	Rock(string, int, int, int, int);
 	virtual int interact(MapObject &);
-	int progress();
 };

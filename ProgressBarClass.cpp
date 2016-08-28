@@ -6,7 +6,7 @@ ProgressBarClass::ProgressBarClass(string text, int width, int height) {
 	this->progressBar.setSize(sf::Vector2f(0, height));
 	this->progressBarShape.setOutlineThickness(3);
 	this->progressBarShape.setFillColor(Color(255, 255, 255, 255));
-	this->progressBar.setFillColor(Color(220, 220, 220, 255));
+	this->progressBar.setFillColor(Color(220, 0, 0, 255));
 	this->progressBarShape.setOutlineColor(Color(180, 180, 180, 255));
 	if (!font.loadFromFile("grafiki\\BuxtonSketch.ttf"))
 	{
@@ -57,7 +57,7 @@ void ProgressBarClass::setTextColor(const Color & color) {
 
 void ProgressBarClass::setProgress(float progress) {
 	if (progress < 1.0 && progress>=0.0) {
-		cout << progress<<endl;
+		//cout << progress<<endl;
 		this->progressBar.setSize(sf::Vector2f(this->progressBarShape.getSize().x*progress, this->progressBarShape.getSize().y));
 		this->progressBar.setPosition(sf::Vector2f(this->progressBarShape.getGlobalBounds().left +this->progressBarShape.getOutlineThickness(),
 			this->progressBarShape.getGlobalBounds().top+ this->progressBarShape.getOutlineThickness()));

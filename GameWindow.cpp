@@ -13,6 +13,11 @@ void GameWindow::checkCollision(ButtonClass& interactionBtn, RenderWindow & wind
 		this->interaction.setMapObject(worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getObject("Rock"));
 		interactionEnabled = 1;
 	}
+	else if (worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].contains("Animal")) {
+		interactionBtn.setText("Fight");
+		this->interaction.setMapObject(worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getObject("Animal"));
+		interactionEnabled = 1;
+	}
 	else {
 		interactionEnabled = 0;
 		if (abs(worldMap->matrix[player->coordinates.x][player->coordinates.y].getCoordinates().z - worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getCoordinates().z) <10 && worldMap->matrix[player->coordinates.x + dx][player->coordinates.y + dy].getCoordinates().z!=0 && (player->coordinates.x + dx!=0 || player->coordinates.y + dy!=0) || player->objectName == "Jesus")
@@ -31,6 +36,7 @@ void GameWindow::createGameWindow() {
 	interactionBtn.setColor(Color(200, 200, 200, 255));
 	interactionBtn.setTextSize(40);
 	interactionBtn.setPosition((window.getSize().x / 2) + 60, (window.getSize().y / 2) - 60);
+
 
 	/*END of In game GUI elements*/
 	while (window.isOpen())
@@ -56,6 +62,8 @@ void GameWindow::createGameWindow() {
 		window.clear();
 		this->rt.paintWorld(window, 0, 0);
 		this->rt.drawPlayerResourceGraphs(window, player->items.at("Wood").amount, player->items.at("Rock").amount);
+		this->rt.drawHealthBar(window, float(player->hp / 100.));
+		if (player->hp <= 0) break; //when the player is dead...
 		/*Maintaining all the events happened in game window*/
 		while (window.pollEvent(event))
 		{

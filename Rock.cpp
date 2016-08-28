@@ -29,13 +29,3 @@ int Rock::interact(MapObject & player)
 		return 0;
 	}
 }
-
-int Rock::progress() {
-	elapsed = 0;
-	while (elapsed < 1000) {
-		elapsed += 10;
-		Sleep(10);
-		cout << elapsed << endl;
-	}
-	return elapsed;
-}

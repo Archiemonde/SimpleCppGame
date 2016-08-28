@@ -4,6 +4,7 @@
 #include"MapObject.h"
 #include<map>
 #include"LabelClass.h"
+#include"ProgressBarClass.h"
 using namespace std;
 using namespace sf;
 Sprite sprite;
@@ -38,6 +39,13 @@ void RenderTools::drawPlayerResourceGraphs(RenderWindow &window, int wood, int r
 	rockResourceCounterLabel.setPosition(window.getSize().x - 120, 220);
 	rockResourceCounterLabel.setTextColor(Color(sf::Color::White));
 	rockResourceCounterLabel.setLabel(window);
+}
+void RenderTools::drawHealthBar(RenderWindow &window, float hp) {
+	ProgressBarClass healthBar("Health",300, 20);
+	healthBar.setPosition(window.getSize().x / 2, window.getSize().y -100);
+	healthBar.setTextColor(Color(sf::Color::White));
+	healthBar.setProgress(hp);
+	healthBar.setProgressBar(window);
 }
 void RenderTools::paintWorld(RenderWindow &window, const int & x, const int & y) {
 	int screenX = 0;

@@ -13,6 +13,16 @@ MapObject::MapObject(int objectID, string objectName, int objectSprite, int x, i
 	this->coordinates = Point(x, y, z);
 	this->sprite = objectSprite;
 }
+int MapObject::progress() {
+	elapsed = 0;
+	while (elapsed < 1000) {
+		elapsed += 10;
+		Sleep(10);
+		//cout << elapsed << endl;
+	}
+	return elapsed;
+}
+
 MapObject::~MapObject()
 {
 }

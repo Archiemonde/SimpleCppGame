@@ -243,7 +243,7 @@ void WorldMap::placeMoveable(int seeds)
 			int moveableID = ANIMAL_ID + (rand() % 3);
 			string spriteName = to_string(moveableID) + ".png";
 			string animalID = "Animal";
-			animals.push_back(static_cast<Animal *>(&matrix[seedx][seedy].addObject(new Animal(animalID, moveableID, seedx, seedy))));
+			animals.push_back(static_cast<Animal *>(&matrix[seedx][seedy].addObject(new Animal(animalID, moveableID, seedx, seedy, (rand() % 5)+1))));
 			seeds--;
 		}
 		

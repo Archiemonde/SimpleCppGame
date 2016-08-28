@@ -15,8 +15,6 @@ private:
 	static int loadSoundBuffer;
 public:
 	int woodCount;
-	int elapsed = 0;
 	Tree(string, int, int, int, int);
 	virtual int interact(MapObject &);
-	int progress();
 };

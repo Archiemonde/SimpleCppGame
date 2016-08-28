@@ -17,4 +17,6 @@ public:
 	int sprite;
 	int objectID;
 	Point coordinates;
+	int progress();
+	int elapsed = 0;
 };
