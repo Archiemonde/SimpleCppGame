@@ -14,5 +14,7 @@ Lewo: A
 
 W przypadku braku możliwości ruchu, spowodowane jest to zbyt wysokim poziomem terenu na który chcemy wejść.
 NIE SKALOWAĆ OKNA, MOŻE TO SPRAWIĆ, ŻE PRZYCISKI W GRZE NIE BĘDĄ DZIAŁAĆ W SPOSÓB PRAWIDŁOWY.
+Próba dołączenia do gry niepowiedzie się. Gra w założeniach miała wspierać moduł sieciowy, jednak nie został on zaimplementowany.
+Podczas tworzenia gry, również nie jest tworzony serwer, do którego inne instancje gry mogłyby się połączyć.
 
 Do skompilowania gry potrzebne są komponenty SOUND, GRAPHICS, WINDOW biblioteki SFML.
