@@ -56,7 +56,7 @@ void ProgressBarClass::setTextColor(const Color & color) {
 }
 
 void ProgressBarClass::setProgress(float progress) {
-	if (progress < 1.0 && progress>=0.0) {
+	if (progress <= 1.0 && progress>=0.0) {
 		//cout << progress<<endl;
 		this->progressBar.setSize(sf::Vector2f(this->progressBarShape.getSize().x*progress, this->progressBarShape.getSize().y));
 		this->progressBar.setPosition(sf::Vector2f(this->progressBarShape.getGlobalBounds().left +this->progressBarShape.getOutlineThickness(),

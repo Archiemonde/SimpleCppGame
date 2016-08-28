@@ -1,21 +1,8 @@
-﻿  RenderTools.cpp
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(28): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(36): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(92): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\rendertools.cpp(102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  ProgressBarClass.cpp
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(5): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(6): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  GameWindow.cpp
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\gamewindow.cpp(216): warning C4805: '==': unsafe mix of type 'sf::Mouse::Button' and type 'bool' in operation
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\gamewindow.cpp(226): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
-f:\do skopiowania na lapka\studia\cppgame\cppgame\cppgame\gamewindow.cpp(230): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
-  Generating Code...
-  CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.exe
-  CppGame.vcxproj -> F:\do skopiowania na lapka\Studia\CppGame\CppGame\Debug\CppGame.pdb (Partial PDB)
+﻿  ProgressBarClass.cpp
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(5): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(6): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CppGame.vcxproj -> F:\do_skopiowania\Studia\CppGame\CppGame\Debug\CppGame.exe
+  CppGame.vcxproj -> F:\do_skopiowania\Studia\CppGame\CppGame\Debug\CppGame.pdb (Partial PDB)
