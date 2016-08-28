@@ -1,0 +1,18 @@
+Aby uruchomić grę należy pobrać i rozpakować plik gameBIN.zip. Znajduje się w nim skompilowany program.
+Aby rozpocząć grę, należy przejść poprzez menu główne w następujący sposób:
+1. Kliknąć w przycisk Create Game.
+2. Kliknąć w pole "Player Name", wpisać wybraną przez siebie nazwę (opcjonalnie).
+3. Kliknąć w pole "Map Size", wpisać wartość liczbową większą niż 40. UWAGA: Wielkość mapy ma znaczny wpływ na szybkość jej generowania!
+Zalecana wielkość mapy: 100-300.
+4. Zaczekać aż mapa się wygeneruje, gra automatycznie otworzy nowe okno, w którym powinna pojawić się właściwa zawartość.
+
+PORUSZANIE W GRZE:
+Góra: W
+Dół: S
+Prawo: D
+Lewo: A
+
+W przypadku braku możliwości ruchu, spowodowane jest to zbyt wysokim poziomem terenu na który chcemy wejść.
+NIE SKALOWAĆ OKNA, MOŻE TO SPRAWIĆ, ŻE PRZYCISKI W GRZE NIE BĘDĄ DZIAŁAĆ W SPOSÓB PRAWIDŁOWY.
+
+Do skompilowania gry potrzebne są komponenty SOUND, GRAPHICS, WINDOW biblioteki SFML.
