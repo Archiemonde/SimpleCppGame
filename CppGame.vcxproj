@@ -119,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <ClInclude Include="Building1.h" />
     <ClInclude Include="ButtonClass.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="GameWindow.h" />

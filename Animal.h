@@ -13,6 +13,7 @@ private:
 	int hp;
 	int dmg;
 public:
+	int iterator;
 	Animal(string name, int spriteName, int x, int y, int dmg);
 	virtual int Animal::interact(MapObject & player);
 	//void Animal::movingThread(WorldMap &worldMap);

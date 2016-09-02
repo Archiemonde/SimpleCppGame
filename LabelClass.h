@@ -13,4 +13,5 @@ public:
 	void setLabel(RenderWindow &);
 	void setTextColor(Color);
 	void setText(string text);
+	void setSize(int size);
 };

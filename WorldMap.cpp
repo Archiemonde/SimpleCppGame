@@ -244,6 +244,7 @@ void WorldMap::placeMoveable(int seeds)
 			string spriteName = to_string(moveableID) + ".png";
 			string animalID = "Animal";
 			animals.push_back(static_cast<Animal *>(&matrix[seedx][seedy].addObject(new Animal(animalID, moveableID, seedx, seedy, (rand() % 5)+1))));
+			animals.back()->iterator =animals.size();
 			seeds--;
 		}
 		

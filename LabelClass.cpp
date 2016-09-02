@@ -25,3 +25,6 @@ void LabelClass::setText(string text) {
 void LabelClass::setLabel(RenderWindow &window ) {
 	window.draw(this->label);
 }
+void LabelClass::setSize(int size) {
+	this->label.setCharacterSize(size);
+}

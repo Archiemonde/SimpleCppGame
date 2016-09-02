@@ -23,6 +23,7 @@
 		/*places the player on random position on the map*/
 		void WorldMap::placePlayer(string, int, Player &player);
 		MapObject& WorldMap::moveObject(MapObject *object, int dx, int dy);
+		vector<Animal *> animals;
 		//MapObject& wm::WorldMap::moveObject(MapObject &object, int dx, int dy);
 		virtual ~WorldMap();
 	private:
@@ -49,7 +50,6 @@
 		void fillWith(int = 0);
 		void WorldMap::bringMoveablesToLife();
 		int WorldMap::main(void);
-		vector<Animal *> animals;
 		std::thread *move;
 		int isMapExists = 0;
 	};

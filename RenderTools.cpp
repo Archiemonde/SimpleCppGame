@@ -14,6 +14,12 @@ RenderTools::RenderTools() {
 	for (int i = 0;i < 31;i++) cellsToRender[i] = new Cell[21];
 }
 
+void RenderTools::drawPlayerName(RenderWindow &window, const string & playerName) {
+	LabelClass playerNameLabel(playerName,40);
+	playerNameLabel.setPosition(window.getSize().x/2, 50);
+	playerNameLabel.setTextColor(Color(sf::Color::White));
+	playerNameLabel.setLabel(window);
+}
 
 void RenderTools::drawSprite(RenderWindow &window,const int & imageName,const int & x,const int & y, const int & xChange, const int & yChange) {
 	sprite.setTexture(textureBuffer.getTexture(imageName));

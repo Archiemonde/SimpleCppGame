@@ -1,8 +1,15 @@
-﻿  ProgressBarClass.cpp
-f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(5): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(6): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\do_skopiowania\studia\cppgame\cppgame\cppgame\progressbarclass.cpp(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  RenderTools.cpp
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\rendertools.cpp(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\rendertools.cpp(34): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\rendertools.cpp(42): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\rendertools.cpp(98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\rendertools.cpp(101): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\rendertools.cpp(105): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\rendertools.cpp(108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameWindow.cpp
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\gamewindow.cpp(217): warning C4805: '==': unsafe mix of type 'sf::Mouse::Button' and type 'bool' in operation
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\gamewindow.cpp(227): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
+f:\do_skopiowania\studia\cppgame\cppgame\cppgame\gamewindow.cpp(231): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
+  Generating Code...
   CppGame.vcxproj -> F:\do_skopiowania\Studia\CppGame\CppGame\Debug\CppGame.exe
   CppGame.vcxproj -> F:\do_skopiowania\Studia\CppGame\CppGame\Debug\CppGame.pdb (Partial PDB)

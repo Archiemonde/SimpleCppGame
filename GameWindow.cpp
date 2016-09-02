@@ -37,7 +37,6 @@ void GameWindow::createGameWindow() {
 	interactionBtn.setTextSize(40);
 	interactionBtn.setPosition((window.getSize().x / 2) + 60, (window.getSize().y / 2) - 60);
 
-
 	/*END of In game GUI elements*/
 	while (window.isOpen())
 	{
@@ -63,6 +62,7 @@ void GameWindow::createGameWindow() {
 		this->rt.paintWorld(window, 0, 0);
 		this->rt.drawPlayerResourceGraphs(window, player->items.at("Wood").amount, player->items.at("Rock").amount);
 		this->rt.drawHealthBar(window, float(player->hp / 100.));
+		this->rt.drawPlayerName(window, player->objectName);
 		if (player->hp <= 0) break; //when the player is dead...
 		/*Maintaining all the events happened in game window*/
 		while (window.pollEvent(event))
@@ -93,12 +93,13 @@ void GameWindow::createGameWindow() {
 		if (interactionEnabled == 1) {
 			interactionBtn.setButton(window);
 			if (event.mouseButton.button == sf::Mouse::Left && event.type == sf::Event::MouseButtonPressed && interactionBtn.handleClickEvent(event.mouseButton.x, event.mouseButton.y) == 1) {
-				//if(worldMap->matrix[player->coordinates.x][player->coordinates.y].getObject())
-			int deleteFlag = interaction.makeInteraction(1);
-			if (deleteFlag == 0) {
-				worldMap->matrix[interaction.getMapObject()->coordinates.x][interaction.getMapObject()->coordinates.y].removeObject(interaction.getMapObject()->objectName);
-				interactionEnabled = 0;
-			}
+					//if(worldMap->matrix[player->coordinates.x][player->coordinates.y].getObject())
+				int deleteFlag = interaction.makeInteraction(1);
+				if (deleteFlag == 0) {
+					//if (interaction.getMapObject()->objectName == "Animal") worldMap->animals.erase(*static_cast<Animal *>(interaction.getMapObject()));
+					worldMap->matrix[interaction.getMapObject()->coordinates.x][interaction.getMapObject()->coordinates.y].removeObject(interaction.getMapObject()->objectName);
+					interactionEnabled = 0;
+				}
 			}
 		}
 		window.display();
